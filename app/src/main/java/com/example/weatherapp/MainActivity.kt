@@ -1,0 +1,48 @@
+package com.example.weatherapp
+
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class MainActivity : AppCompatActivity() {
+
+    // declare variables
+
+    private lateinit var textView: TextView
+    private lateinit var textView2: TextView
+    private lateinit var textView3: TextView
+    private lateinit var imageView: ImageView
+    private lateinit var buttonNext: Button
+    private lateinit var buttonExit2: Button
+
+    @SuppressLint("MissingInflatedId")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+
+        textView = findViewById(R.id.textView)
+        textView2 = findViewById(R.id.textView2)
+        textView3 = findViewById(R.id.textView3)
+        imageView = findViewById(R.id.imageView)
+        buttonNext = findViewById(R.id.buttonNext)
+        buttonExit2 = findViewById(R.id.buttonExit2)
+
+        buttonNext.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity(intent)
+        }
+
+        buttonExit2.setOnClickListener {
+            finishAffinity()
+        }
+
+    }
+}
